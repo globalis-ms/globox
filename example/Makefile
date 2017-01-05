@@ -23,7 +23,7 @@ endif
 
 
 # Concat & minify styles & scripts
-dist/styles/main.css: sources/styles/*.scss sources/styles/**/*.scss
+dist/styles/main.css: sources/styles/*.scss sources/styles/**/*.scss ../globox/styles/*.scss
 	@ node-sass --output-style=compressed sources/styles/main.scss -o dist/styles/ --source-map dist/styles/
 	@ echo "› $@ has been updated"
 

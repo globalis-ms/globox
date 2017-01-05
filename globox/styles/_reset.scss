@@ -1,0 +1,52 @@
+/**
+ * Reset
+ * NOTE it's better to define line-height in proportion to `$unit` to preserve the baseline
+ * ------------------------------
+ * Dependencies:
+ * - $font-size-base
+ * - $unit
+ */
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+    font-size: $font-size-base / 16px * 100%;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-size: $font-size-base;
+}
+
+body {
+    line-height: $unit;
+}
+
+table, p, ul, ol, dd {
+    &:not(:last-child) {
+        margin-bottom: $unit;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td, th {
+    padding: $unit/2;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
