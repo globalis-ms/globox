@@ -1,0 +1,44 @@
+/**
+ * Variables
+ */
+
+
+// BASE
+// ------------------------------
+// Base font size for the `<body>` element
+$font-size-base: 16px !default;
+
+// General unit accross the website
+$unit: .75rem !default;
+// $line-height-unit: 2 !default;
+
+
+
+// FONTS & ICONS
+// ------------------------------
+// fonts path, relative to the compiled css file
+$fonts-path: '../fonts/' !default;
+
+// fonts list
+// NOTE order: font-family, filename (without extension), font-weight, font-style
+$fonts: (
+    ("icomoon", "icomoon", normal, normal),
+) !default;
+
+
+
+// BREAKPOINTS
+// ------------------------------
+$breakpoints: (
+    xs: 0,
+    sm: 420px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1440px
+) !default;
+
+
+
+// GRID
+// ------------------------------
+$gutter: $unit*2 !default;

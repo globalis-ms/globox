@@ -1,0 +1,11 @@
+# FILE SYSTEMS FILES
+*.db
+.DS_Store
+._*
+*~
+/**/._*
+.fuse*
+
+
+# SPECIFIC FILES
+notes.md

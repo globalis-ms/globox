@@ -1,0 +1,74 @@
+/**
+ * Breakpoints
+ * ------------------------------
+ * Dependencies:
+ * - $breakpoints
+ * - $font-size-base
+ */
+
+
+// MIXINS
+// NOTE breakpoints goes up by default, as we are mobile-first
+// NOTE breakpoints are converted in em in case the user zooms
+// ------------------------------
+// apply to current breakpoint and above
+@mixin breakpoint-up($key) {
+    @if $key == xs { @content; }
+    @else {
+        @media (min-width: breakpoint($key)) {
+            @content;
+        }
+    }
+}
+
+// apply to current breakpoint and below
+@mixin breakpoint-down($key) {
+    @if $key == xl { @content; }
+    @else {
+        @media (max-width: breakpoint-max($key)) {
+            @content;
+        }
+    }
+}
+
+// apply to first breakpoint until last breakpoint, included
+@mixin breakpoint-between($min, $max) {
+    @if $min == xs { @include breakpoint-down($max); }
+    @if $max == xl { @include breakpoint-up($min); }
+    @else {
+        @media (min-width: breakpoint($min)) and (max-width: breakpoint-max($max)) {
+            @content;
+        }
+    }
+}
+
+// apply to a specific breakpoint
+@mixin breakpoint-only($key) {
+    @include breakpoint-between($key, $key) {
+        @content;
+    }
+}
+
+
+
+// HELPERS
+// ------------------------------
+// retrieve breakpoint value
+@function breakpoint($key) {
+    @if map-has-key($breakpoints, $key) {
+        @return map-get($breakpoints, $key) / $font-size-base * 1em;
+    }
+    @warn "Unknown `#{$key}` in $breakpoints.";
+    @return null;
+}
+
+// retrieve next breakpoint value
+$breakpoints-keys: map-keys($breakpoints);
+@function breakpoint-max($key) {
+    $next: nth($breakpoints-keys, index($breakpoints-keys, $key)+1);
+    @if map-has-key($breakpoints, $next) {
+        @return breakpoint($next)-1;
+    }
+    @warn "Unknown `#{$next}` in $breakpoints.";
+    @return null;
+}

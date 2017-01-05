@@ -1,0 +1,148 @@
+/**
+ * Grid
+ * ------------------------------
+ * Dependencies:
+ * - Breakpoints
+ * - $breakpoints
+ * - $gutter
+ */
+
+
+// GLOBAL MIXINS
+// ------------------------------
+// Global variables
+// NOTE not meant to be set manually
+// but it could happen, in case of nested grids
+// if you need to reset the columns number after declaring a child grid
+$global-columns: (xs: 12) !default;
+
+
+// Grid container
+%grid {
+    padding-left: $gutter/2;
+    padding-right: $gutter/2;
+}
+
+
+// Number of columns in row
+@mixin row($columns: null) {
+    @if type-of($columns) == map { $global-columns: $columns !global; }
+
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    margin-left: -$gutter/2;
+    margin-right: -$gutter/2;
+
+    & > * {
+        -webkit-flex: 0 0 auto;
+        flex: 0 0 auto;
+
+        margin-left: $gutter/2;
+        margin-right: $gutter/2;
+        margin-bottom: $gutter;
+
+        // children are equally-sized columns by default
+        @include column((xs: 1), $global-columns);
+    }
+}
+
+
+// Size of a column
+@mixin column($sizes, $columns: null, $default: 1) {
+    @if type-of($columns) == map { $global-columns: $columns !global; }
+    $sizes: gb-sizes($sizes, $global-columns, $default);
+    @each $key, $value in $sizes {
+        @include breakpoint-up($key) {
+            $w: calc(#{$value} - #{$gutter});
+            -webkit-flex-basis: $w;
+            flex-basis: $w;
+            max-width: $w;
+        }
+    }
+}
+
+
+// Offset column
+@mixin offset($sizes, $columns: null, $default: 0) {
+    @if type-of($columns) == map { $global-columns: $columns !global; }
+    $sizes: gb-sizes($sizes, $global-columns, $default);
+    @each $key, $value in $sizes {
+        $w: calc(#{$value} + #{$gutter/2});
+        @include breakpoint-up($key) {
+            margin-left: $w;
+            margin-right: $gutter/2;
+        }
+    }
+}
+
+
+
+// SIZE HELPERS
+// ------------------------------
+// Get map of column sizes in percentage by breakpoint
+// NOTE ex: for 4 columns, (md: 2) becomes (xs: 25%, sm: 25%, md: 50%, lg: 50%, xl: 50%)
+@function gb-sizes($sizes, $columns, $default) {
+    // compute the number of columns and the current column sizes for each breakpoint
+    $_columns: gb-compute-breakpoints($columns);
+    $_sizes: gb-compute-breakpoints($sizes, $default);
+
+    $output: ();
+    @each $key in map-keys($breakpoints) {
+        // add breakpoint if the columns number or the current column size changes
+        @if map-has-key($columns, $key) or map-has-key($sizes, $key) {
+            // get the number of columns and the current column size
+            $total: map-get($_columns, $key);
+            $size: map-get($_sizes, $key);
+
+            // add computed size in percents
+            $output: map-merge($output, ("#{$key}": 100%/$total*$size));
+        }
+    }
+    @return $output;
+}
+
+// Make values persist through following breakpoints
+// NOTE ex: (md: 1) becomes (xs: 0, sm: 0, md: 1, lg: 1, xl: 1)
+@function gb-compute-breakpoints($map, $default: 1) {
+    $output: $breakpoints;
+    $value: $default;
+    @each $key, $val in $output {
+        @if (map-has-key($map, $key)) {
+            $value: map-get($map, $key);
+        }
+        $output: map-merge($output, ("#{$key}": $value));
+    }
+    @return $output;
+}
+
+
+
+// OPTIONS
+// ------------------------------
+@each $key in map-keys($breakpoints) {
+    // Vertical: alignement
+    $map: (bottom: flex-end, top: flex-start, middle: center, equal: stretch);
+    @each $name, $property in $map {
+        %#{$name}-#{$key} {
+            @include breakpoint-up($key) {
+                -webkit-align-items: $property;
+                align-items: $property;
+            }
+        }
+    }
+
+    // Horizontal: distribution
+    $map: (start: flex-end, end: flex-start, center: center, between: space-between, around: space-around);
+    @each $name, $property in $map {
+        %#{$name}-#{$key} {
+            @include breakpoint-up($key) {
+                -webkit-justify-content: $property;
+                justify-content: $property;
+            }
+        }
+    }
+}
