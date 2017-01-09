@@ -7,7 +7,7 @@
 # brew install watch
 # brew info watch # read watch path
 # sudo mv <path_to_watch>/bin/watch /usr/local/bin
-all: assets/globox.css assets/globox.js
+all: assets/docs.css assets/globbox.js
 
 host = "http://localhost"
 port = 3000
@@ -22,12 +22,12 @@ endif
 
 
 # Concat & minify styles & scripts
-assets/globox.css: ../globox/styles/*.scss ../globox/styles/**/*.scss
-	@ node-sass --output-style=compressed ../globox/styles/globox.scss -o assets/
+assets/docs.css: assets/docs.scss ../globbox/styles/*.scss ../globbox/styles/**/*.scss
+	@ node-sass --output-style=compressed assets/docs.scss -o assets/
 	@ echo "› $@ has been updated"
 
-assets/globox.js: ../globox/scripts/*.js
-	@ uglifyjs ../globox/scripts/*.js -o $@
+assets/globbox.js: ../globbox/scripts/*.js
+	@ uglifyjs ../globbox/scripts/*.js -o $@
 	@ echo "› $@ has been updated"
 
 

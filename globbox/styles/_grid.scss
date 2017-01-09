@@ -43,7 +43,6 @@ $global-columns: (xs: 12) !default;
 
         margin-left: $gutter/2;
         margin-right: $gutter/2;
-        margin-bottom: $gutter;
 
         // children are equally-sized columns by default
         @include column((xs: 1), $global-columns);

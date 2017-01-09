@@ -14,7 +14,7 @@ function words($min, $max = false) {
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Globox</title>
+	<title>Globbox</title>
 	<meta name="robots" content="noindex, nofollow">
 	<link href="dist/styles/main.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">

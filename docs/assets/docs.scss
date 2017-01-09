@@ -1,0 +1,70 @@
+@import '../../globbox/styles/globbox';
+
+
+.Simple {
+    @extend %grid;
+    background: rgba(red, .1);
+
+    &-row {
+        @include row((sm: 2, md: 3, lg: 4));
+    }
+
+    &-cell {
+        margin-bottom: $gutter;
+        padding: $unit/2;
+        background: rgba(red, .2);
+    }
+}
+
+.Extended {
+    @extend %grid;
+    background: rgba(red, .1);
+
+    &-row {
+        @include row((sm: 2, md: 3, lg: 4));
+    }
+
+    &-cell {
+        margin-bottom: $gutter;
+        padding: $unit/2;
+        background: rgba(red, .2);
+        border: 4px solid #212121;
+
+        &.modifiers {
+            @include column((sm: 2, md: 1, lg: 2));
+			@include offset((md: 1, xl: 0));
+        }
+    }
+}
+
+
+$nested-grid: (sm: 2, md: 3, lg: 4);
+.Parent {
+    @extend %grid;
+    background: rgba(red, .1);
+
+    &-row {
+        @include row($nested-grid);
+    }
+
+    &-cell {
+        margin-bottom: $gutter;
+        padding: $unit/2;
+        background: rgba(red, .2);
+    }
+}
+
+.Child {
+    @include column((sm: 2), $nested-grid);
+    padding: 0;
+
+    &-row {
+        @include row((xs: 2));
+    }
+
+    &-cell {
+        margin-bottom: $gutter;
+        padding: $unit/2;
+        background: rgba(blue, .2);
+    }
+}
