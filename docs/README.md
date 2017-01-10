@@ -1,7 +1,15 @@
 # Globbox
 
-## General
+Globbox is meant as a SCSS toolbox instead of a standalone CSS framework.
+It serves mixins and placeholder classes to extend your own components, preserving your namespace and your DOM.
 
+## Quick start
+
+Import `globbox/styles/globbox.scss` in your main SCSS file before compiling.
+Comment/uncomment de modules you want.
+
+Load the `globbox/scripts/*.js` files anywhere, in any order.
+It's best to concat them in a single file, along with your own scripts.
 
 
 ## Breakpoints
@@ -29,6 +37,11 @@ extra large (huge desktop) | **xl** | 1440 | `@media (min-width: 1440px) { … 
 ```
 
 ## Grid
+
+The grid isn't base on 12 columns or any other unit.
+You choose the number of columns, then 1 cell sizes 1 column by default.
+
+This structure allows a straightforward declaration of the grid sizes with a custom number of columns, and also removes the usual calculations the 1/12 unit imposes.
 
 ### Default grid
 
@@ -67,7 +80,10 @@ extra large (huge desktop) | **xl** | 1440 | `@media (min-width: 1440px) { … 
 }
 ```
 
-### Styling cells
+### Cell style, size and offset
+
+Gutter are made with margins, since widths are calculated with `calc()` helper.
+This allows setting padding and background colors in the cell element.
 
 <div class="Extended">
     <div class="Extended-row">
@@ -103,6 +119,8 @@ extra large (huge desktop) | **xl** | 1440 | `@media (min-width: 1440px) { … 
 ```
 
 ### Nested grid
+
+Supported but not optimal yet. Could be needing further thoughts.
 
 <div class="Parent">
     <div class="Parent-row">
