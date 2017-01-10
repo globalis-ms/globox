@@ -202,3 +202,37 @@ $nested-grid: (sm: 2, md: 3, lg: 4);
     /* … */
 }
 ```
+
+
+## Fonts and icons
+
+### Icons
+Icons come from [Icomoon](https://icomoon.io/app), which allow you to import and export your set as JSON, that is best to version into your repository. It's loaded by default with no icons.
+
+### Fonts declaration
+
+A font helper lets you simply declare fonts as a list of arguments in `_variables.scss`.
+
+
+```
+$fonts: (
+    ("icomoon", "icomoon", normal, normal),
+) !default;
+```
+
+To add a font, simply duplicate the line and change the arguments, following this order:
+
+1. **Font name**: the one you call in `font-family` property.
+2. **File name** without the extension: if you have font variations, keep the same `font name` argument between files declaration.
+3. **Font weight**: the `font-weight` value defining the current font variation.
+4. **Font style**: the `font-style` value defining the current font variation.
+
+### Use rems
+
+A helper helps you declare a font size with the `rem` unit from pixels:
+
+```css
+.title {
+    font-size: rem(40px);
+}
+```

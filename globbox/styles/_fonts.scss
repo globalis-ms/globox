@@ -2,9 +2,19 @@
  * Fonts & icons
  * ------------------------------
  * Dependencies:
+ * - $font-size-base
  * - $fonts-path
  * - $fonts
  */
+
+
+ // HELPERS
+ // ------------------------------
+ // Helper to convert PX to REM
+ @function rem($pixels) {
+     @return $pixels / $font-size-base * 1rem;
+ }
+
 
 
 // DECLARATIONS
