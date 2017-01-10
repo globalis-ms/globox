@@ -1,7 +1,7 @@
 # Globbox
 
-Globbox is meant as a SCSS toolbox instead of a standalone CSS framework.
-It serves mixins and placeholder classes to extend your own components, preserving your namespace and your DOM.
+Globbox is meant as a **SCSS toolbox** instead of a standalone CSS framework.
+It serves **modular** mixins and placeholder classes to extend your own components, preserving your namespace and your DOM.
 
 ## Quick start
 
@@ -14,19 +14,19 @@ It's best to concat them in a single file, along with your own scripts.
 
 ## Breakpoints
 
-screens | notation | pixels | default media query
---- | --- | --- | ---
-extra small (small phones) | **xs** | 0 | *no media queries*
-small (> 5" phones) | **sm** | 420 | `@media (min-width: 420px) { … }`
-medium (landscape phones, tablets) | **md** | 768 | `@media (min-width: 768px) { … }`
-large (common desktop) | **lg** | 1024 | `@media (min-width: 1024px) { … }`
-extra large (huge desktop) | **xl** | 1440 | `@media (min-width: 1440px) { … }`
+screens | devices | notation | pixels | default media query
+--- | --- | --- | --- | ---
+extra&nbsp;small | small phones | **xs** | 0 | *no media queries*
+small | > 5" phones | **sm** | 420 | `@media (min-width: 420px) { … }`
+medium | landscape phones, tablets | **md** | 768 | `@media (min-width: 768px) { … }`
+large | landscape tablets, common desktop | **lg** | 1024 | `@media (min-width: 1024px) { … }`
+extra&nbsp;large | huge desktop | **xl** | 1440 | `@media (min-width: 1440px) { … }`
 
 ```css
 /* @media (min-width: 420px) { … } */
 @include breakpoint-up(sm) { … }
 
-/* @media (max-width: 1023px) { … } */
+/* @media (max-width: 1439px) { … } */
 @include breakpoint-down(lg) { … }
 
 /* @media (min-width: 420px) and (max-width: 1439px) { … } */
@@ -42,6 +42,8 @@ The grid isn't base on 12 columns or any other unit.
 You choose the number of columns, then 1 cell sizes 1 column by default.
 
 This structure allows a straightforward declaration of the grid sizes with a custom number of columns, and also removes the usual calculations the 1/12 unit imposes.
+
+It's based on **flexbox** and the `calc()` function.
 
 ### Default grid
 
@@ -83,7 +85,7 @@ This structure allows a straightforward declaration of the grid sizes with a cus
 ### Cell style, size and offset
 
 Gutter are made with margins, since widths are calculated with `calc()` helper.
-This allows setting padding and background colors in the cell element.
+This allows setting padding, borders and background colors in the cell element.
 
 <div class="Extended">
     <div class="Extended-row">
@@ -106,6 +108,7 @@ This allows setting padding and background colors in the cell element.
         margin-bottom: $gutter;
         padding: 20px;
 		border: 4px solid #212121;
+        background: rgba(yellow, .2);
 
         &.modifiers {
             /* takes 2 columns on SM, 1 on MD, 2 on LG */
@@ -229,7 +232,7 @@ To add a font, simply duplicate the line and change the arguments, following thi
 
 ### Use rems
 
-A helper helps you declare a font size with the `rem` unit from pixels:
+A function helps you convert pixels into `rem`:
 
 ```css
 .title {

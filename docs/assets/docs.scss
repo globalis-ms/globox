@@ -29,6 +29,7 @@
         padding: $unit/2;
         background: rgba(red, .2);
         border: 4px solid #212121;
+        background: rgba(yellow, .2);
 
         &.modifiers {
             @include column((sm: 2, md: 1, lg: 2));
