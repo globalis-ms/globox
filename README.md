@@ -1,11 +1,19 @@
 # Globbox
 
+[![MIT license](https://img.shields.io/badge/license-MIT-yellow.svg?style=flat-square)](https://github.com/globalis-ms/globbox/blob/master/LICENSE)
+
 Globbox is meant as a **SCSS toolbox** instead of a standalone CSS framework.
 It serves **modular** mixins and placeholder classes to extend your own components, preserving your namespace and your DOM.
+Note that it first has been made for internal purposes at [GLOBALIS media systems](https://www.globalis-ms.com/).
+
+Thanks,  
+[Nicolas Torres](mailto:nicolas.torres@globalis-ms.com) and [Sylvain Dubus](mailto:sylvain.dubus@globalis-ms.com)
+
+
 
 ## Installation
 
-Make sure [Node.js](https://nodejs.org/) is installed and that you are able to install packages in global.
+Make sure [Node.js](https://nodejs.org/) is installed and that you are able to install packages globally.
 
 Clone this repo, then run:
 
@@ -19,10 +27,12 @@ make watch host=<host> port=<port> # OR build & watch for changes on <host>:<por
 make watch sync=false # OR build & watch for changes, without Browser-sync
 ```
 
-This documentation serves as an example.
+This documentation also serves as an demo package.
 
 **Note:** think about adding `dist/` into `.gitignore` after installing.
 Globbox versions `dist/` only to make its documentation available through Github pages.
+
+
 
 ## Compilation
 
@@ -35,6 +45,7 @@ Comment/uncomment de modules you want.
 It's best to concat your scripts in a single file.
 
 Assets come self documented, you'll find dependencies notes and comments on each file.
+
 
 
 ## Breakpoints
@@ -60,6 +71,8 @@ extra&nbsp;large | huge desktop | **xl** | 1440 | `@media (min-width: 1440px) {
 /* @media (min-width: 768px) and (max-width: 1023px) { … } */
 @include breakpoint-only(md) { … }
 ```
+
+
 
 ## Grid
 
@@ -230,6 +243,7 @@ $nested-grid: (sm: 2, md: 3, lg: 4);
     /* … */
 }
 ```
+
 
 
 ## Fonts and icons
