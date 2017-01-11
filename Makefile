@@ -22,20 +22,27 @@ endif
 
 
 # Concat & minify styles & scripts
-dist/styles/main.css: sources/styles/*.scss sources/styles/**/*.scss ../globbox/styles/*.scss
-	@ node-sass --output-style=compressed sources/styles/main.scss -o dist/styles/ --source-map dist/styles/
+dist/styles/main.css: assets/styles/*.scss assets/styles/**/*.scss
+	@ node-sass --output-style=compressed assets/styles/main.scss -o dist/styles/ --source-map dist/styles/
 	@ echo "› $@ has been updated"
 
-dist/scripts/main.js: sources/scripts/*.js
-	@ uglifyjs sources/scripts/*.js -o dist/scripts/main.js --source-map dist/scripts/main.js.map -p relative
+dist/scripts/main.js: assets/scripts/*.js
+	@ uglifyjs assets/scripts/*.js -o dist/scripts/main.js --source-map dist/scripts/main.js.map -p relative
 	@ echo "› $@ has been updated"
 
 
 
 # Install dependencies
 PACKAGES = "node-sass uglifyjs browser-sync"
+docs = false
 install:
 	@ echo "› Checking NPM dependencies:"
 	@ for name in "$(PACKAGES)"; do hash $$name 2>/dev/null || (echo "-- Installing $$name" && sudo npm install -g $$name); done
 	@ mkdir -p dist/styles dist/scripts
+ifeq ($(docs), true)
+	@ echo "› Building docs/ folder:"
+	@ mkdir -p docs
+	@ cp dist docs
+	@ mv -t docs index.html README.md guidelines.md
+endif
 	@ echo "› Installation done, start with \"make watch\"."

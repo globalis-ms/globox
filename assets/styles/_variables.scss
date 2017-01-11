@@ -3,13 +3,9 @@
  */
 
 
-
 // COLORS
 // ------------------------------
-// $gray-dark: #212121;
-// $gray: #757575;
-// $gray-light: #BDBDBD;
-
+// $primary: #4078c0;
 
 
 
@@ -23,11 +19,6 @@
 // ------------------------------
 // Document base font size in px: better not change it
 $font-size-base: 16px !default;
-
-// Helper to convert PX to REM
-@function rem($pixels) {
-    @return $pixels / $font-size-base * 1rem;
-}
 
 // General unit accross the website
 $unit: 1.5rem !default;
