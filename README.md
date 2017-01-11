@@ -36,12 +36,12 @@ Globbox versions `dist/` only to make its documentation available through Github
 
 ## Compilation
 
-Globbox comes with a default architecture, compiling on Makefile.
-However Globbox files could be extracted and compiled separately, with your own method, following these instructions:
+Globbox comes with its starter architecture, compiling on Makefile.
+However the Globbox toolbox can be extracted and compiled separately, with your own method, following these instructions:
 
-- Import `assets/styles/globbox/globbox.scss` in your main SCSS file before compiling.
+- Import `globbox.scss` and its dependencies in your main SCSS file before compiling.
 Comment/uncomment de modules you want.
-- Load or import the `assets/scripts/_globox.js` file anywhere.
+- Load or import the `_globox.js` file anywhere.
 It's best to concat your scripts in a single file.
 
 Assets come self documented, you'll find dependencies notes and comments on each file.
