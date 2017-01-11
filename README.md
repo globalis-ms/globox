@@ -3,13 +3,36 @@
 Globbox is meant as a **SCSS toolbox** instead of a standalone CSS framework.
 It serves **modular** mixins and placeholder classes to extend your own components, preserving your namespace and your DOM.
 
-## Quick start
+## Installation
 
-Import `globbox/styles/globbox.scss` in your main SCSS file before compiling.
+Clone this repo, then run:
+
+```shell
+make install # removes the documentation
+make install docs=true # OR backups the documentation
+
+make all # build
+make watch # OR build & watch for changes on localhost:3000
+make watch host=<host> port=<port> # OR build & watch for changes on <host>:<port>
+make watch sync=false # OR build & watch for changes, without Browser-sync
+```
+
+This documentation serves as an example.
+
+**Note:** think about adding `dist/` into `.gitignore` after installing.
+Globbox versions `dist/` only to make its documentation available through Github pages.
+
+## Compilation
+
+Globbox comes with a default architecture, compiling on Makefile.
+However Globbox files could be extracted and compiled separately, with your own method, following these instructions:
+
+- Import `assets/styles/globbox/globbox.scss` in your main SCSS file before compiling.
 Comment/uncomment de modules you want.
+- Load or import the `assets/scripts/_globox.js` file anywhere.
+It's best to concat your scripts in a single file.
 
-Load the `globbox/scripts/*.js` files anywhere, in any order.
-It's best to concat them in a single file, along with your own scripts.
+Assets come self documented, you'll find dependencies notes and comments on each file.
 
 
 ## Breakpoints
