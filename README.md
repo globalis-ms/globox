@@ -5,6 +5,8 @@ It serves **modular** mixins and placeholder classes to extend your own componen
 
 ## Installation
 
+Make sure [Node.js](https://nodejs.org/) is installed and that you are able to install packages in global.
+
 Clone this repo, then run:
 
 ```shell

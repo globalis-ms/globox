@@ -41,8 +41,8 @@ install:
 	@ mkdir -p dist/styles dist/scripts
 ifeq ($(docs), true)
 	@ echo "› Building docs/ folder:"
-	@ mkdir -p docs
-	@ cp dist docs
-	@ mv -t docs index.html README.md guidelines.md
+	@ mkdir -p docs/
+	@ cp -r dist docs/
+	@ mv index.html README.md guidelines.md _coverpage.md docs/
 endif
 	@ echo "› Installation done, start with \"make watch\"."
