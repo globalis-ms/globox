@@ -18,20 +18,38 @@ Make sure [Node.js](https://nodejs.org/) is installed and that you are able to i
 Clone this repo, then run:
 
 ```shell
-make install # removes the documentation
-make install docs=true # OR backups the documentation
+make -s install # removes the documentation
+make -s install docs=true # OR backups the documentation
 
-make all # build
-make watch # OR build & watch for changes on localhost:3000
-make watch host=<host> port=<port> # OR build & watch for changes on <host>:<port>
-make watch sync=false # OR build & watch for changes, without Browser-sync
+make -s all # build
+make -s watch # OR build & watch for changes on localhost:3000
+make -s watch host=<host> port=<port> # OR build & watch for changes on <host>:<port>
+make -s watch sync=false # OR build & watch for changes, without Browser-sync
 ```
+
+**Note:** the -s option is for silent mode.
 
 This documentation also serves as an demo package.
 
 **Note:** think about adding `dist/` into `.gitignore` after installing.
 Globbox versions `dist/` only to make its documentation available through Github pages.
 
+## Make options
+
+These options can be either modified directly in the Makefile configuration part or used as arguments :
+```shell
+make -s <command> <option>=<value>
+```
+
+option | default value | description
+--- | --- | --- | --- | ---
+sync | true | Uses BrowserSync while watching
+host | http://localhost | BrowserSync's URL
+port | 3000 | BrowserSync's port
+local-modules | true | Installs and uses node modules locally (otherwise, modules must be installed globally)
+admin-cmd | sudo | Determines which root command it should use (if necessary)
+prod | false | Determines if we're on a production environment
+docs | false | Keeps documentation on a separate folder after install
 
 
 ## Compilation
