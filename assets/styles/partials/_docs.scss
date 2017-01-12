@@ -30,7 +30,7 @@
 
         &.modifiers {
             @include column((sm: 2, md: 1, lg: 2));
-			@include offset((md: 1, xl: 0));
+            @include offset((md: 1, xl: 0));
         }
     }
 }

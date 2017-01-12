@@ -32,7 +32,7 @@ SCSS files are stored into `assets/styles/` folder, following these rules:
 - `_common.scss` is for main header, main footer & other common elements across pages,
 - `_global.scss` is default global styles (like `body`), and utility classes,
 - `_helpers.scss` is for functions, mixins and placeholder classes,
-- `_variables.scss` contains all the Globbox and custom variables,
+- `_variables.scss` contains custom variables,
 - then each component/page has its own file, except for single selectors or very small sets of items, which are put into `_misc.scss`,
 - if you don't know where to put some code, use `_dev.scss`, but try to keep it clean as much as you can (empty is best).
 

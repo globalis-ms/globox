@@ -8,12 +8,12 @@
  */
 
 
- // HELPERS
- // ------------------------------
- // Helper to convert PX to REM
- @function rem($pixels) {
-     @return $pixels / $font-size-base * 1rem;
- }
+// HELPERS
+// ------------------------------
+// Helper to convert PX to REM
+@function rem($pixels) {
+    @return $pixels / $font-size-base * 1rem;
+}
 
 
 
@@ -33,13 +33,13 @@
 }
 
 .icomoon, [class^="icon-"], [class*=" icon-"] {
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
