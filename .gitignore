@@ -7,4 +7,9 @@
 .fuse*
 
 
+# FRONT-END FILES
+bower_components
+node_modules
+
+
 # SPECIFIC FILES

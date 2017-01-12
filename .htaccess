@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# Versioning helper
+	# NOTE redirect file-<hash>.min.js/css to file.min.js/css
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.+)-([a-zA-Z0-9]+)\.((min\.)?css|js)$ $1.$3 [L]
+</IfModule>
