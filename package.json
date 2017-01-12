@@ -1,0 +1,27 @@
+{
+  "name": "globbox",
+  "version": "1.0.0",
+  "description": "Fast front-end starter",
+  "main": "index.html",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "bower-files": "^3.14.1",
+    "browser-sync": "^2.18.6",
+    "imagemin-cli": "^3.0.0",
+    "node-sass": "^4.2.0",
+    "uglify": "^0.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@192.168.1.44/usr/local/apache/htdocs/git/globbox"
+  },
+  "author": "Nicolas Torres and Sylvain Dubus",
+  "license": "MIT"
+}
