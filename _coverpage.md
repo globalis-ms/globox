@@ -7,4 +7,4 @@
 
 
 [GitHub](https://github.com/globalisms/globbox)
-[Get Started](#installation)
+[Get Started](#starter-kit)

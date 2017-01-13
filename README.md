@@ -1,5 +1,3 @@
-# Globbox
-
 [![MIT license](https://img.shields.io/badge/license-MIT-yellow.svg?style=flat-square)](https://github.com/globalis-ms/globbox/blob/master/LICENSE)
 
 Globbox is meant as a **SCSS toolbox** instead of a standalone CSS framework.
@@ -10,6 +8,9 @@ Thanks,
 [Nicolas Torres](mailto:nicolas.torres@globalis-ms.com) and [Sylvain Dubus](mailto:sylvain.dubus@globalis-ms.com)
 
 
+# Starter kit
+
+Globbox comes as a front-end starter kit with a small footprint, with build tools and a folders structure.
 
 ## Installation and build
 
@@ -18,14 +19,15 @@ Make sure [Node.js](https://nodejs.org/) is installed and that you are able to i
 Clone this repo, then run:
 
 ```shell
+# Installation
 make -s install # init project: removes the documentation
 
-# Options
+# Installation options
 make -s install docs=true # backups the documentation
 make -s install global=true # skip NPM dependencies
 make -s install docs=true global=true # backups the documentation AND skip NPM dependencies
 
-# Dev tools
+# Development tools
 make -s all # build
 make -s watch # build & watch for changes on localhost:3000
 make -s watch host=<host> port=<port> # OR build & watch for changes on <host>:<port>
@@ -39,7 +41,7 @@ make -s watch sync=false # OR build & watch for changes, without Browser-sync
 
 This documentation also serves as an demo package.
 
-### Make options
+## Make options
 
 These options can be either modified directly in the Makefile configuration part or used as arguments :
 ```shell
@@ -55,19 +57,20 @@ docs | false | Keeps documentation on a separate folder after install
 global | false | Skip npm dependencies on install
 
 
-### Compilation
+## Compilation
 
 Globbox comes with its starter architecture, compiling on Makefile.
 However the Globbox toolbox can be extracted and compiled separately, with your own method, following these instructions:
 
 - Import `globbox.scss` and its dependencies in your main SCSS file before compiling.
 Comment/uncomment de modules you want.
-- Load or import the `_globox.js` file anywhere.
+- Load or import the `_globbox.js` file anywhere.
 It's best to concat your scripts in a single file.
 
 Assets come self documented, you'll find dependencies notes and comments on each file.
 
 
+# Components
 
 ## Breakpoints
 

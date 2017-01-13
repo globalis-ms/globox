@@ -1,5 +1,7 @@
 # Front-end guidelines
 
+While these are our internal guidelines, it gives the context in which Globbox has been created.
+
 ## General notes
 
 ### Adding sources
@@ -22,7 +24,7 @@ There is a versioning helper in the `.htaccess` that redirects any `name-<hash>.
 
 ### Images
 
-Images in `assets/images` are optimized with [Imagemin-CLI](https://github.com/imagemin/imagemin-cli)
+Images in `assets/images` are optimized with [Imagemin-CLI](https://github.com/imagemin/imagemin-cli).
 
 ## Stylesheets
 
@@ -130,7 +132,6 @@ Try to keep the classes in that order: **component, modifiers, utilities, js**.
     </li>
 </ul>
 ```
-
 
 
 
