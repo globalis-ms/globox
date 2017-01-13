@@ -245,23 +245,24 @@ Supported but not optimal yet. Could be needing further thoughts.
 Solving size conflicts with non-linear declarations:
 
 ```css
-$nested-grid: (sm: 2, md: 3, lg: 4);
+$parent-grid: (sm: 2, md: 3, lg: 4);
 .Parent {
     @extend %grid;
 
     &-row {
-        @include row($nested-grid);
+        @include row($parent-grid);
     }
 
     /* … */
 }
 
+$child-grid: (xs: 2);
 .Child {
-    @include column((sm: 2), $nested-grid);
+    @include column((sm: 2), $parent-grid);
     padding: 0;
 
     &-row {
-        @include row((xs: 2));
+        @include row($child-grid);
     }
 
     /* … */
