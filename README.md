@@ -11,30 +11,35 @@ Thanks,
 
 
 
-## Installation
+## Installation and build
 
 Make sure [Node.js](https://nodejs.org/) is installed and that you are able to install packages globally.
 
 Clone this repo, then run:
 
 ```shell
-make -s install # removes the documentation
-make -s install docs=true # OR backups the documentation
+make -s install # init project: removes the documentation
 
+# Options
+make -s install docs=true # backups the documentation
+make -s install global=true # skip NPM dependencies
+make -s install docs=true global=true # backups the documentation AND skip NPM dependencies
+
+# Dev tools
 make -s all # build
-make -s watch # OR build & watch for changes on localhost:3000
+make -s watch # build & watch for changes on localhost:3000
 make -s watch host=<host> port=<port> # OR build & watch for changes on <host>:<port>
 make -s watch sync=false # OR build & watch for changes, without Browser-sync
 ```
 
-**Note:** the -s option is for silent mode.
+**Notes:**
+- the -s option stands for silent mode.
+- think about adding `dist/` into `.gitignore` after installing. Globbox versions `dist/` only to make its documentation available through Github pages.
+- skipping NPM dependencies suggests that you have the packages installed globally.
 
 This documentation also serves as an demo package.
 
-**Note:** think about adding `dist/` into `.gitignore` after installing.
-Globbox versions `dist/` only to make its documentation available through Github pages.
-
-## Make options
+### Make options
 
 These options can be either modified directly in the Makefile configuration part or used as arguments :
 ```shell
@@ -46,13 +51,11 @@ option | default value | description
 sync | true | Uses BrowserSync while watching
 host | http://localhost | BrowserSync's URL
 port | 3000 | BrowserSync's port
-local-modules | true | Installs and uses node modules locally (otherwise, modules must be installed globally)
-admin-cmd | sudo | Determines which root command it should use (if necessary)
-prod | false | Determines if we're on a production environment
 docs | false | Keeps documentation on a separate folder after install
+global | false | Skip npm dependencies on install
 
 
-## Compilation
+### Compilation
 
 Globbox comes with its starter architecture, compiling on Makefile.
 However the Globbox toolbox can be extracted and compiled separately, with your own method, following these instructions:

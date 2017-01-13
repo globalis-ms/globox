@@ -10,6 +10,7 @@ So basically:
 
 - when you create CSS files, make sure they are included by `assets/styles/main.scss`,
 - when you create JS files, make sure they are before `assets/scripts/main.js` in the alphabetical order (as they should, using naming convention below).
+- Bower dependencies JS files are compiled into a separate file `dist/scripts/vendor.js`, it's up to you to import the styles where you want to (using SCSS or not) because each package has its own way of working with CSS.
 
 Except for external libraries, you should not need to manually declare custom styles and scripts into `index.php`.
 
