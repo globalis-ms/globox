@@ -1,8 +1,8 @@
 # General configuration
 # --------------------
 # constants
-GLOBAL_MODULES = $(GLOBBOX_GLOBAL || false)
-ifeq ($(GLOBAL_MODULES), true)
+NPM_GLOBAL = $(shell if [ -d "node_modules" ]; then echo "false"; else echo "true"; fi)
+ifeq ($(NPM_GLOBAL), true)
 	NPM_PREFIX = ''
 else
 	NPM_PREFIX = 'node_modules/.bin/'
@@ -14,6 +14,7 @@ port = 3000
 sync = true
 
 # install
+global = false
 docs = false
 
 
@@ -48,11 +49,11 @@ dist/scripts/main.js: assets/scripts/*.js
 
 # Install dependencies
 install:
-ifeq ($(GLOBAL_MODULES), true)
+ifeq ($(global), true)
+	@ echo "› Global mode: make sure NPM dependencies are installed globally (check package.json)."
+else
 	@ echo "› Checking NPM dependencies:"
 	@ npm install
-else
-	@ echo "› Global mode: make sure NPM dependencies are installed globally (check package.json)."
 endif
 	@ echo "› Done. Installing frond-end dependencies:"
 	@ bower install --allow-root
