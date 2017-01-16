@@ -11,6 +11,7 @@ Thanks,
 # Starter kit
 
 Globbox comes as a front-end starter kit with a small footprint, with build tools and a folders structure.
+You will also find some [front-end guidelines](guidelines.md) to keep the project clean.
 
 ## Installation and build
 
@@ -19,6 +20,9 @@ Make sure [Node.js](https://nodejs.org/) is installed and that you are able to i
 Clone this repo, then run:
 
 ```shell
+git clone git@github.com:globalis-ms/globbox.git <project_name>
+cd <project_name>
+
 # Installation
 make -s install # init project: removes the documentation
 
