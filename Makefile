@@ -63,9 +63,9 @@ ifeq ($(docs), true)
 	@ echo "› Building docs/ folder:"
 	@ mkdir -p docs/
 	@ cp -r dist docs/
-	@ mv index.html README.md guidelines.md _coverpage.md docs/
+	@ mv index.html README.md guidelines.md cover.md docs/
 else
-	@ rm -f index.html README.md guidelines.md _coverpage.md
+	@ rm -f index.html guidelines.md cover.md
 endif
 	@ echo "› Installation done, start with \"make watch\"."
 

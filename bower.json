@@ -1,5 +1,7 @@
 {
   "name": "globbox",
+  "license": "MIT",
+  "private": true,
   "dependencies": {},
   "devDependencies": {
   }
