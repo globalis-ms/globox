@@ -4,7 +4,7 @@
  * Dependencies:
  * - Breakpoints
  * - $breakpoints
- * - $gutter
+ * - $unit
  */
 
 
@@ -14,19 +14,22 @@
 // NOTE not meant to be set manually
 // but it could happen, in case of nested grids
 // if you need to reset the columns number after declaring a child grid
-$global-columns: (xs: 12) !default;
+$grid-columns: (xs: 12) !default;
+$grid-gutter: $unit !default;
 
 
 // Grid container
-%grid {
-    padding-left: $gutter/2;
-    padding-right: $gutter/2;
+@mixin grid($gutter: null) {
+    @if $gutter != null { $grid-gutter: $gutter !global; }
+
+    padding-left: $grid-gutter/2;
+    padding-right: $grid-gutter/2;
 }
 
 
 // Number of columns in row
 @mixin row($columns: null) {
-    @if type-of($columns) == map { $global-columns: $columns !global; }
+    @if type-of($columns) == map { $grid-columns: $columns !global; }
 
     display: -webkit-flex;
     display: flex;
@@ -34,29 +37,29 @@ $global-columns: (xs: 12) !default;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
 
-    margin-left: -$gutter/2;
-    margin-right: -$gutter/2;
+    margin-left: -$grid-gutter/2;
+    margin-right: -$grid-gutter/2;
 
     & > * {
         -webkit-flex: 0 0 auto;
         flex: 0 0 auto;
 
-        margin-left: $gutter/2;
-        margin-right: $gutter/2;
+        margin-left: $grid-gutter/2;
+        margin-right: $grid-gutter/2;
 
         // children are equally-sized columns by default
-        @include column((xs: 1), $global-columns);
+        @include column((xs: 1), $grid-columns);
     }
 }
 
 
 // Size of a column
 @mixin column($sizes, $columns: null, $default: 1) {
-    @if type-of($columns) == map { $global-columns: $columns !global; }
-    $sizes: gb-sizes($sizes, $global-columns, $default);
+    @if type-of($columns) == map { $grid-columns: $columns !global; }
+    $sizes: gb-sizes($sizes, $grid-columns, $default);
     @each $key, $value in $sizes {
         @include breakpoint-up($key) {
-            $w: calc(#{$value} - #{$gutter});
+            $w: calc(#{$value} - #{$grid-gutter});
             -webkit-flex-basis: $w;
             flex-basis: $w;
             max-width: $w;
@@ -67,13 +70,13 @@ $global-columns: (xs: 12) !default;
 
 // Offset column
 @mixin offset($sizes, $columns: null, $default: 0) {
-    @if type-of($columns) == map { $global-columns: $columns !global; }
-    $sizes: gb-sizes($sizes, $global-columns, $default);
+    @if type-of($columns) == map { $grid-columns: $columns !global; }
+    $sizes: gb-sizes($sizes, $grid-columns, $default);
     @each $key, $value in $sizes {
-        $w: calc(#{$value} + #{$gutter/2});
+        $w: calc(#{$value} + #{$grid-gutter/2});
         @include breakpoint-up($key) {
             margin-left: $w;
-            margin-right: $gutter/2;
+            margin-right: $grid-gutter/2;
         }
     }
 }

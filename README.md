@@ -138,7 +138,7 @@ It's based on **flexbox** and the `calc()` function.
 
 ```css
 .Component {
-    @extend %grid;
+    @include grid();
 
     &-row {
         /* 1 column on XS, 2 on SM, 3 on MD… */
@@ -150,6 +150,19 @@ It's based on **flexbox** and the `calc()` function.
     }
 }
 ```
+
+### Custom gutter width
+
+```css
+.Component {
+    @include grid(2rem);
+    …
+}
+```
+
+Setting a custom gutter will affect following grids.
+It's better setting it on each `grid()` declaration.
+Default value is `$unit`.
 
 ### Cell style, size and offset
 
@@ -167,7 +180,7 @@ This allows setting padding, borders and background colors in the cell element.
 
 ```css
 .Component {
-    @extend %grid;
+    @include grid($unit);
 
     &-row {
         @include row((sm: 2, md: 3, lg: 4));
@@ -224,7 +237,7 @@ Supported but not optimal yet. Could be needing further thoughts.
 
 ```css
 .Parent {
-    @extend %grid;
+    @include grid($unit);
 
     &-row {
         @include row((sm: 2, md: 3, lg: 4););
@@ -254,7 +267,7 @@ Solving size conflicts with non-linear declarations:
 ```css
 $parent-grid: (sm: 2, md: 3, lg: 4);
 .Parent {
-    @extend %grid;
+    @include grid($unit);
 
     &-row {
         @include row($parent-grid);

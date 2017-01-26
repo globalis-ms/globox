@@ -4,7 +4,7 @@
 }
 
 .Simple {
-    @extend %grid;
+    @include grid($unit);
     background: rgba(red, .1);
 
     &-row {
@@ -12,14 +12,14 @@
     }
 
     &-cell {
-        margin-bottom: $gutter;
+        margin-bottom: $unit;
         padding: $unit/2;
         background: rgba(red, .2);
     }
 }
 
 .Extended {
-    @extend %grid;
+    @include grid($unit);
     background: rgba(red, .1);
 
     &-row {
@@ -27,7 +27,7 @@
     }
 
     &-cell {
-        margin-bottom: $gutter;
+        margin-bottom: $unit;
         padding: $unit/2;
         background: rgba(red, .2);
         border: 4px solid #212121;
@@ -43,7 +43,7 @@
 
 $nested-grid: (sm: 2, md: 3, lg: 4);
 .Parent {
-    @extend %grid;
+    @include grid($unit);
     background: rgba(red, .1);
 
     &-row {
@@ -51,7 +51,7 @@ $nested-grid: (sm: 2, md: 3, lg: 4);
     }
 
     &-cell {
-        margin-bottom: $gutter;
+        margin-bottom: $unit;
         padding: $unit/2;
         background: rgba(red, .2);
     }
@@ -66,7 +66,7 @@ $nested-grid: (sm: 2, md: 3, lg: 4);
     }
 
     &-cell {
-        margin-bottom: $gutter;
+        margin-bottom: $unit;
         padding: $unit/2;
         background: rgba(blue, .2);
     }
