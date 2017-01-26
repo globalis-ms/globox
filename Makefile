@@ -96,8 +96,9 @@ scripts:
 
 vendor:
 	@ echo "› Building vendor scripts:"
-	@ $(NPM_PREFIX)uglifyjs $(shell $(NPM_PREFIX)bower-files js) -o dist/scripts/vendor.js --source-map dist/scripts/vendor.js.map -p relative
-	@ echo "› dist/scripts/vendor.js has been updated"
+	@ $(eval files=$(shell $(NPM_PREFIX)bower-files js))
+	@ [ -z "$(files)" ] || $(NPM_PREFIX)uglifyjs $(files) -o dist/scripts/vendor.js --source-map dist/scripts/vendor.js.map -p relative
+	@ [ -z "$(files)" ] && echo "› no vendor scripts" || echo "› dist/scripts/vendor.js has been updated"
 
 fonts:
 	@ echo "› Moving fonts:"
