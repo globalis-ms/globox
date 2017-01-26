@@ -6,5 +6,5 @@
 - Powerful flexbox grid system
 
 
-[GitHub](https://github.com/globalisms/globbox)
+[GitHub](https://github.com/globalis-ms/globbox)
 [Get Started](#starter-kit)
