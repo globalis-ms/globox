@@ -80,6 +80,7 @@ build:
 	@ make scripts
 	@ make fonts
 	@ make images
+	@ date +%Y%m%d%H%M%S > dist/version
 
 styles:
 	@ echo "› Building styles:"
