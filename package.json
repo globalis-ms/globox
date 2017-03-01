@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@192.168.1.44/usr/local/apache/htdocs/git/globbox"
+    "url": "https://github.com/globalis-ms/globbox"
   },
   "author": "Nicolas Torres and Sylvain Dubus",
   "license": "MIT"

@@ -53,7 +53,7 @@ option | default value | description
 sync | true | Uses BrowserSync while watching
 host | http://localhost | BrowserSync's URL
 port | 3000 | BrowserSync's port
-global | false | Skip npm dependencies on install
+global | false | Skip local node modules installation
 
 
 ## Compilation

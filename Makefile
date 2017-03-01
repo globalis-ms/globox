@@ -7,6 +7,9 @@
 # Prefix for all commands using Node.js modules binaries
 # Keep it empty if you prefer to use global modules
 NPM_PREFIX = 'node_modules/.bin/'
+ifeq ($(global), true)
+	NPM_PREFIX = ''
+endif
 
 # Browser-sync configuration
 host = "http://localhost"
@@ -24,7 +27,7 @@ all:
 
 # Install Node.js modules, install bower dependencies, build documentation (if KEEP_DOCS is set to true)
 install:
-ifeq ($(NPM_PREFIX), '')
+ifeq ($(global), true)
 	@ echo "› Global mode: make sure NPM dependencies are installed globally (check package.json)."
 else
 	@ echo "› Checking NPM dependencies:"

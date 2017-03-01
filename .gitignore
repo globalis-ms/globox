@@ -6,11 +6,7 @@
 /**/._*
 .fuse*
 
-
 # FRONT-END FILES
 bower_components
 node_modules
-# /dist
-
-
-# SPECIFIC FILES
+/dist
