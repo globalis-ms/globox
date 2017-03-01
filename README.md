@@ -24,15 +24,11 @@ git clone git@github.com:globalis-ms/globbox.git <project_name>
 cd <project_name>
 
 # Installation
-make -s install # init project: removes the documentation
-
-# Installation options
-make -s install docs=true # backups the documentation
-make -s install global=true # skip NPM dependencies
-make -s install docs=true global=true # backups the documentation AND skip NPM dependencies
+make -s install # install NPM modules and bower dependencies
+make -s build # build assets
+make -s all # for both installation and build
 
 # Development tools
-make -s all # build
 make -s watch # build & watch for changes on localhost:3000
 make -s watch host=<host> port=<port> # OR build & watch for changes on <host>:<port>
 make -s watch sync=false # OR build & watch for changes, without Browser-sync
@@ -43,7 +39,7 @@ make -s watch sync=false # OR build & watch for changes, without Browser-sync
 - think about adding `dist/` into `.gitignore` after installing. Globbox versions `dist/` only to make its documentation available through Github pages.
 - skipping NPM dependencies suggests that you have the packages installed globally.
 
-This documentation also serves as an demo package.
+This documentation can be found in the docs/ folder.
 
 ## Make options
 
@@ -57,7 +53,6 @@ option | default value | description
 sync | true | Uses BrowserSync while watching
 host | http://localhost | BrowserSync's URL
 port | 3000 | BrowserSync's port
-docs | false | Keeps documentation on a separate folder after install
 global | false | Skip npm dependencies on install
 
 

@@ -8,9 +8,6 @@
 # Keep it empty if you prefer to use global modules
 NPM_PREFIX = 'node_modules/.bin/'
 
-# Determines if documentation files should be saved after installation
-KEEP_DOCS = false
-
 # Browser-sync configuration
 host = "http://localhost"
 port = 3000
@@ -27,7 +24,7 @@ all:
 
 # Install Node.js modules, install bower dependencies, build documentation (if KEEP_DOCS is set to true)
 install:
-ifeq ($(global), true)
+ifeq ($(NPM_PREFIX), '')
 	@ echo "› Global mode: make sure NPM dependencies are installed globally (check package.json)."
 else
 	@ echo "› Checking NPM dependencies:"
@@ -35,15 +32,6 @@ else
 endif
 	@ echo "› Installing front-end dependencies:"
 	@ bower install --allow-root
-ifeq ($(KEEP_DOCS), true)
-	@ echo "› Building docs/ folder:"
-	@ mkdir -p docs/
-	@ cp -r dist docs/
-	@ mv index.html README.md guidelines.md cover.md docs/
-else
-	@ echo "› Remove doc"
-	@ rm -f index.html guidelines.md cover.md
-endif
 	@ echo "› Installation done, start with \"make watch\"."
 
 # Build all assets into dist
