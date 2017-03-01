@@ -1,4 +1,4 @@
-# Globbox <small>0.0.1</small>
+# Globbox <small>1.0.0</small>
 
 > Fast front-end starter.
 

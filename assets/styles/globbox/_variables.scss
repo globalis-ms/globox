@@ -5,6 +5,7 @@
 
 // BASE
 // ------------------------------
+
 // Document base font size in px: better not change it
 $font-size-base: 16px !default;
 
@@ -12,9 +13,9 @@ $font-size-base: 16px !default;
 $unit: 1.5rem !default;
 
 
-
 // FONTS & ICONS
 // ------------------------------
+
 // fonts path, relative to the compiled css file
 $fonts-path: '../fonts/' !default;
 
@@ -25,9 +26,9 @@ $fonts: (
 ) !default;
 
 
-
 // BREAKPOINTS
 // ------------------------------
+
 $breakpoints: (
     xs: 0,
     sm: 420px,

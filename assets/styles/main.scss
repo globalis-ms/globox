@@ -1,11 +1,13 @@
 // Globbox
 // --------------------
+
 @import 'variables';
 @import 'globbox/globbox';
 
 
 // Project commons
 // --------------------
+
 @import "icons";
 @import "helpers";
 @import "global";
@@ -15,9 +17,12 @@
 // Project components
 // NOTE create one file per component, put other things into “misc”
 // --------------------
+
 @import 'partials/docs';
+
 
 // Import temporary styles
 // NOTE Keep it as clean as possible (empty is best)
 // --------------------
+
 @import "dev";
