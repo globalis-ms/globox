@@ -36,7 +36,6 @@ make -s watch sync=false # OR build & watch for changes, without Browser-sync
 
 **Notes:**
 - the -s option stands for silent mode.
-- think about adding `dist/` into `.gitignore` after installing. Globbox versions `dist/` only to make its documentation available through Github pages.
 - skipping NPM dependencies suggests that you have the packages installed globally.
 
 This documentation can be found in the docs/ folder.
