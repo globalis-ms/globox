@@ -112,20 +112,20 @@ It's based on **flexbox** and the `calc()` function.
 
 <div class="Sample1">
     <div class="Sample1-row">
-        <div class="Sample1-cell Cell">1</div>
-        <div class="Sample1-cell Cell">2</div>
-        <div class="Sample1-cell Cell">3</div>
-        <div class="Sample1-cell Cell">4</div>
+        <div class="Sample1-cell Cell"></div>
+        <div class="Sample1-cell Cell"></div>
+        <div class="Sample1-cell Cell"></div>
+        <div class="Sample1-cell Cell"></div>
     </div>
 </div>
 
 ```html
 <div class="Sample1">
     <div class="Sample1-row">
-        <div class="Sample1-cell Cell">1</div>
-        <div class="Sample1-cell Cell">2</div>
-        <div class="Sample1-cell Cell">3</div>
-        <div class="Sample1-cell Cell">4</div>
+        <div class="Sample1-cell Cell"></div>
+        <div class="Sample1-cell Cell"></div>
+        <div class="Sample1-cell Cell"></div>
+        <div class="Sample1-cell Cell"></div>
     </div>
 </div>
 ```
@@ -172,20 +172,20 @@ This allows setting padding, borders and background colors in the cell element.
 
 <div class="Sample2">
     <div class="Sample2-row">
-        <div class="Sample2-cell Cell">placeholder cell content</div>
-        <div class="Sample2-cell Cell modifiers">placeholder cell content</div>
-        <div class="Sample2-cell Cell">placeholder cell content</div>
-        <div class="Sample2-cell Cell">placeholder cell content</div>
+        <div class="Sample2-cell Cell"></div>
+        <div class="Sample2-cell Cell modifiers"></div>
+        <div class="Sample2-cell Cell"></div>
+        <div class="Sample2-cell Cell"></div>
     </div>
 </div>
 
 ```html
 <div class="Sample2">
     <div class="Sample2-row">
-        <div class="Sample2-cell Cell">placeholder cell content</div>
-        <div class="Sample2-cell Cell modifiers">placeholder cell content</div>
-        <div class="Sample2-cell Cell">placeholder cell content</div>
-        <div class="Sample2-cell Cell">placeholder cell content</div>
+        <div class="Sample2-cell Cell"></div>
+        <div class="Sample2-cell Cell modifiers"></div>
+        <div class="Sample2-cell Cell"></div>
+        <div class="Sample2-cell Cell"></div>
     </div>
 </div>
 ```
@@ -224,40 +224,40 @@ Supported but not optimal yet. Could be needing further thoughts.
 
 <div class="Sample3">
     <div class="Sample3-row">
-        <div class="Sample3-cell Cell">1</div>
+        <div class="Sample3-cell Cell"></div>
         <div class="Sample3-cell Sample3Child">
             <div class="Sample3Child-row">
-                <div class="Sample3Child-cell Cell">2.1</div>
+                <div class="Sample3Child-cell Cell"></div>
                 <div class="Sample3Child-cell">
                     <div class="Sample3Grandchild-row">
-                        <div class="Sample3Grandchild-cell Cell">2.2.1</div>
-                        <div class="Sample3Grandchild-cell Cell">2.2.2</div>
-                        <div class="Sample3Grandchild-cell Cell">2.2.3</div>
+                        <div class="Sample3Grandchild-cell Cell"></div>
+                        <div class="Sample3Grandchild-cell Cell"></div>
+                        <div class="Sample3Grandchild-cell Cell"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="Sample3-cell Cell isLarge"><span class="Cell-content">3</span></div>
+        <div class="Sample3-cell Cell isLarge"><span class="Cell-content"></span></div>
     </div>
 </div>
 
 ```html
 <div class="Sample3">
     <div class="Sample3-row">
-        <div class="Sample3-cell Cell">1</div>
+        <div class="Sample3-cell Cell"></div>
         <div class="Sample3-cell Sample3Child">
             <div class="Sample3Child-row">
-                <div class="Sample3Child-cell Cell">2.1</div>
+                <div class="Sample3Child-cell Cell"></div>
                 <div class="Sample3Child-cell">
                     <div class="Sample3Grandchild-row">
-                        <div class="Sample3Grandchild-cell Cell">2.2.1</div>
-                        <div class="Sample3Grandchild-cell Cell">2.2.2</div>
-                        <div class="Sample3Grandchild-cell Cell">2.2.3</div>
+                        <div class="Sample3Grandchild-cell Cell"></div>
+                        <div class="Sample3Grandchild-cell Cell"></div>
+                        <div class="Sample3Grandchild-cell Cell"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="Sample3-cell Cell isLarge"><span class="Cell-content">3</span></div>
+        <div class="Sample3-cell Cell isLarge"><span class="Cell-content"></span></div>
     </div>
 </div>
 ```

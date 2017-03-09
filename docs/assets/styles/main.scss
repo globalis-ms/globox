@@ -29,6 +29,9 @@
 
     &-cell {
         background: rgba(#1375a6, .4);
+        &:before {
+            content: 'Cell';
+        }
     }
 }
 
@@ -43,7 +46,9 @@
     &-cell {
         border: 4px solid #1375a6;
         background: rgba(#1375a6, .4);
-
+        &:before {
+            content: 'Cell';
+        }
         &.modifiers {
             @include column((sm: 2, md: 1, lg: 2));
             @include offset((md: 1, xl: 0));
@@ -61,6 +66,9 @@
 
     &-cell {
         background: rgba(#1375a6, .4);
+        &.Cell:before {
+            content: '1';
+        }
         &.isLarge {
             @include column((sm: 2, md: 3, lg: 1));
         }
@@ -77,6 +85,9 @@
 
     &-cell {
         background: rgba(#1375a6, .6);
+        &.Cell:before {
+            content: '2';
+        }
     }
 }
 
@@ -90,5 +101,8 @@
     &-cell {
         background: #1375a6;
         font-size: 0.75rem;
+        &.Cell:before {
+            content: '3';
+        }
     }
 }
