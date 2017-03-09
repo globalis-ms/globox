@@ -1,39 +1,48 @@
 @import '../assets/styles/globbox/globbox';
 
+.markdown-section pre {
+    background-color: #f2f2f2;
+    & > code {
+        background-color: inherit;
+    }
+}
+
 .markdown-section {
     ul { list-style: disc; }
     ol { list-style: decimal; }
 }
 
-.Simple {
-    @include grid($unit);
-    background: rgba(red, .1);
+.Cell {
+    text-align: center;
+    font-size: 1rem;
+    padding: $unit/2 0;
+    color: #fff;
+}
+
+.Sample1 {
+    @include set-gutter($unit);
+    background: rgba(#1375a6, .2);
 
     &-row {
         @include row((sm: 2, md: 3, lg: 4));
     }
 
     &-cell {
-        margin-bottom: $unit;
-        padding: $unit/2;
-        background: rgba(red, .2);
+        background: rgba(#1375a6, .4);
     }
 }
 
-.Extended {
-    @include grid($unit);
-    background: rgba(red, .1);
+.Sample2 {
+    @include set-gutter($unit);
+    background: rgba(#1375a6, .2);
 
     &-row {
         @include row((sm: 2, md: 3, lg: 4));
     }
 
     &-cell {
-        margin-bottom: $unit;
-        padding: $unit/2;
-        background: rgba(red, .2);
-        border: 4px solid #212121;
-        background: rgba(yellow, .2);
+        border: 4px solid #1375a6;
+        background: rgba(#1375a6, .4);
 
         &.modifiers {
             @include column((sm: 2, md: 1, lg: 2));
@@ -42,34 +51,44 @@
     }
 }
 
-
-$nested-grid: (sm: 2, md: 3, lg: 4);
-.Parent {
-    @include grid($unit);
-    background: rgba(red, .1);
+.Sample3 {
+    @include set-gutter($unit);
 
     &-row {
-        @include row($nested-grid);
+        @include row((sm: 2, md: 3, lg: 4));
+        background: rgba(#1375a6, .2);
     }
 
     &-cell {
-        margin-bottom: $unit;
-        padding: $unit/2;
-        background: rgba(red, .2);
+        background: rgba(#1375a6, .4);
+        &.isLarge {
+            @include column((sm: 2, md: 3, lg: 1));
+        }
+    }
+
+}
+
+.Sample3Child {
+    @include column((md: 2));
+
+    &-row {
+        @include row((md: 2));
+    }
+
+    &-cell {
+        background: rgba(#1375a6, .6);
     }
 }
 
-.Child {
-    @include column((sm: 2), $nested-grid);
-    padding: 0;
-
+.Sample3Grandchild {
+    @include set-gutter($unit/2);
+    
     &-row {
-        @include row((xs: 2));
+        @include row((md: 3));
     }
 
     &-cell {
-        margin-bottom: $unit;
-        padding: $unit/2;
-        background: rgba(blue, .2);
+        background: #1375a6;
+        font-size: 0.75rem;
     }
 }

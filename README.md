@@ -110,37 +110,45 @@ It's based on **flexbox** and the `calc()` function.
 
 ### Default grid
 
-<div class="Simple">
-    <div class="Simple-row">
-        <div class="Simple-cell"></div>
-        <div class="Simple-cell"></div>
-        <div class="Simple-cell"></div>
-        <div class="Simple-cell"></div>
+<div class="Sample1">
+    <div class="Sample1-row">
+        <div class="Sample1-cell Cell">1</div>
+        <div class="Sample1-cell Cell">2</div>
+        <div class="Sample1-cell Cell">3</div>
+        <div class="Sample1-cell Cell">4</div>
     </div>
 </div>
 
 ```html
-<div class="Component">
-    <div class="Component-row">
-        <div class="Component-cell"> … </div>
-        <div class="Component-cell modifiers"> … </div>
-        <div class="Component-cell"> … </div>
-        <div class="Component-cell"> … </div>
+<div class="Sample1">
+    <div class="Sample1-row">
+        <div class="Sample1-cell Cell">1</div>
+        <div class="Sample1-cell Cell">2</div>
+        <div class="Sample1-cell Cell">3</div>
+        <div class="Sample1-cell Cell">4</div>
     </div>
 </div>
 ```
 
 ```css
-.Component {
-    @include grid();
+.Cell {
+    text-align: center;
+    font-size: 1rem;
+    padding: $unit/2 0;
+    font-family: sans;
+    color: #fff;
+}
+
+.Sample1 {
+    @include set-gutter($unit);
+    background: rgba(#1375a6, .2);
 
     &-row {
-        /* 1 column on XS, 2 on SM, 3 on MD… */
         @include row((sm: 2, md: 3, lg: 4));
     }
 
     &-cell {
-        margin-bottom: $gutter;
+        background: rgba(#1375a6, .4);
     }
 }
 ```
@@ -148,14 +156,13 @@ It's based on **flexbox** and the `calc()` function.
 ### Custom gutter width
 
 ```css
-.Component {
-    @include grid(2rem);
-    …
+.Sample1 {
+    @include set-gutter(2rem);
 }
 ```
 
 Setting a custom gutter will affect following grids.
-It's better setting it on each `grid()` declaration.
+It's better setting it on each `set-gutter()` declaration.
 Default value is `$unit`.
 
 ### Cell style, size and offset
@@ -163,35 +170,49 @@ Default value is `$unit`.
 Gutter are made with margins, since widths are calculated with `calc()` helper.
 This allows setting padding, borders and background colors in the cell element.
 
-<div class="Extended">
-    <div class="Extended-row">
-        <div class="Extended-cell">placeholder cell content</div>
-        <div class="Extended-cell modifiers">placeholder cell content</div>
-        <div class="Extended-cell">placeholder cell content</div>
-        <div class="Extended-cell">placeholder cell content</div>
+<div class="Sample2">
+    <div class="Sample2-row">
+        <div class="Sample2-cell Cell">placeholder cell content</div>
+        <div class="Sample2-cell Cell modifiers">placeholder cell content</div>
+        <div class="Sample2-cell Cell">placeholder cell content</div>
+        <div class="Sample2-cell Cell">placeholder cell content</div>
     </div>
 </div>
 
+```html
+<div class="Sample2">
+    <div class="Sample2-row">
+        <div class="Sample2-cell Cell">placeholder cell content</div>
+        <div class="Sample2-cell Cell modifiers">placeholder cell content</div>
+        <div class="Sample2-cell Cell">placeholder cell content</div>
+        <div class="Sample2-cell Cell">placeholder cell content</div>
+    </div>
+</div>
+```
+
 ```css
-.Component {
-    @include grid($unit);
+.Cell {
+    text-align: center;
+    font-size: 1rem;
+    padding: $unit/2 0;
+    color: #fff;
+}
+
+.Sample2 {
+    @include set-gutter($unit);
+    background: rgba(#1375a6, .2);
 
     &-row {
         @include row((sm: 2, md: 3, lg: 4));
     }
 
     &-cell {
-        margin-bottom: $gutter;
-        padding: 20px;
-		border: 4px solid #212121;
-        background: rgba(yellow, .2);
+        border: 4px solid #1375a6;
+        background: rgba(#1375a6, .4);
 
         &.modifiers {
-            /* takes 2 columns on SM, 1 on MD, 2 on LG */
             @include column((sm: 2, md: 1, lg: 2));
-
-            /* offsets by 1 column on MD and LG */
-			@include offset((md: 1, xl: 0));
+            @include offset((md: 1, xl: 0));
         }
     }
 }
@@ -201,57 +222,93 @@ This allows setting padding, borders and background colors in the cell element.
 
 Supported but not optimal yet. Could be needing further thoughts.
 
-<div class="Parent">
-    <div class="Parent-row">
-        <div class="Parent-cell"></div>
-        <div class="Parent-cell Child">
-            <div class="Child-row">
-                <div class="Child-cell"></div>
-                <div class="Child-cell"></div>
+<div class="Sample3">
+    <div class="Sample3-row">
+        <div class="Sample3-cell Cell">1</div>
+        <div class="Sample3-cell Sample3Child">
+            <div class="Sample3Child-row">
+                <div class="Sample3Child-cell Cell">2.1</div>
+                <div class="Sample3Child-cell">
+                    <div class="Sample3Grandchild-row">
+                        <div class="Sample3Grandchild-cell Cell">2.2.1</div>
+                        <div class="Sample3Grandchild-cell Cell">2.2.2</div>
+                        <div class="Sample3Grandchild-cell Cell">2.2.3</div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="Parent-cell"></div>
+        <div class="Sample3-cell Cell isLarge"><span class="Cell-content">3</span></div>
     </div>
 </div>
 
 ```html
-<div class="Parent">
-    <div class="Parent-row">
-        <div class="Parent-cell"></div>
-        <div class="Parent-cell Child">
-            <div class="Child-row">
-                <div class="Child-cell"></div>
-                <div class="Child-cell"></div>
+<div class="Sample3">
+    <div class="Sample3-row">
+        <div class="Sample3-cell Cell">1</div>
+        <div class="Sample3-cell Sample3Child">
+            <div class="Sample3Child-row">
+                <div class="Sample3Child-cell Cell">2.1</div>
+                <div class="Sample3Child-cell">
+                    <div class="Sample3Grandchild-row">
+                        <div class="Sample3Grandchild-cell Cell">2.2.1</div>
+                        <div class="Sample3Grandchild-cell Cell">2.2.2</div>
+                        <div class="Sample3Grandchild-cell Cell">2.2.3</div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="Parent-cell"></div>
+        <div class="Sample3-cell Cell isLarge"><span class="Cell-content">3</span></div>
     </div>
 </div>
 ```
 
 ```css
-.Parent {
-    @include grid($unit);
+.Cell {
+    text-align: center;
+    font-size: 1rem;
+    padding: $unit/2 0;
+    color: #fff;
+}
+
+.Sample3 {
+    @include set-gutter($unit);
 
     &-row {
-        @include row((sm: 2, md: 3, lg: 4););
+        @include row((sm: 2, md: 3, lg: 4));
+        background: rgba(#1375a6, .2);
     }
 
     &-cell {
-        margin-bottom: $gutter;
+        background: rgba(#1375a6, .4);
+        &.isLarge {
+            @include column((sm: 2, md: 3, lg: 1));
+        }
+    }
+
+}
+
+.Sample3Child {
+    @include column((md: 2));
+
+    &-row {
+        @include row((md: 2));
+    }
+
+    &-cell {
+        background: rgba(#1375a6, .6);
     }
 }
 
-.Child {
-    @include column((sm: 2)); /* uses previous `row()` declaration for sizing */
-    padding: 0;
-
+.Sample3Grandchild {
+    @include set-gutter($unit/2);
+    
     &-row {
-        @include row((xs: 2));
+        @include row((md: 3));
     }
 
     &-cell {
-        margin-bottom: $gutter;
+        background: #1375a6;
+        font-size: 0.75rem;
     }
 }
 ```
@@ -261,7 +318,7 @@ Solving size conflicts with non-linear declarations:
 ```css
 $parent-grid: (sm: 2, md: 3, lg: 4);
 .Parent {
-    @include grid($unit);
+    @include set-gutter($unit);
 
     &-row {
         @include row($parent-grid);

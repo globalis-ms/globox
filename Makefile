@@ -2,7 +2,7 @@
 # --------------------
 
 # Phony targets
-.PHONY: all build install fonts images scripts scripts_specific styles styles_specific watch
+.PHONY: all install build fonts images scripts vendor styles watch
 
 # Prefix for all commands using Node.js modules binaries
 # Keep it empty if you prefer to use global modules

@@ -18,12 +18,20 @@ $grid-columns: (xs: 12) !default;
 $grid-gutter: $unit !default;
 
 
-// Grid container
-@mixin grid($gutter: null) {
-    @if $gutter != null { $grid-gutter: $gutter !global; }
+// Grid column setter
+@mixin set-columns($columns) {
+    @if type-of($columns) == map {
+        $grid-columns: $columns !global;
+    }
+}
 
-    padding-left: $grid-gutter/2;
-    padding-right: $grid-gutter/2;
+
+// Grid gutter setter
+@mixin set-gutter($gutter) {
+    @if unit($gutter) == "" {
+        $gutter: $gutter#{rem};
+    }
+    $grid-gutter: $gutter !global;
 }
 
 
@@ -37,15 +45,13 @@ $grid-gutter: $unit !default;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
 
-    margin-left: -$grid-gutter/2;
-    margin-right: -$grid-gutter/2;
+    padding: $grid-gutter/2;
 
     & > * {
         -webkit-flex: 0 0 auto;
         flex: 0 0 auto;
 
-        margin-left: $grid-gutter/2;
-        margin-right: $grid-gutter/2;
+        margin: $grid-gutter/2;
 
         // children are equally-sized columns by default
         @include column((xs: 1), $grid-columns);
