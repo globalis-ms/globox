@@ -13,7 +13,7 @@
     "browser-sync": "^2.18.6",
     "imagemin-cli": "^3.0.0",
     "node-sass": "^4.2.0",
-    "uglify": "^0.1.5"
+    "uglify-js": "^2.8.12"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
