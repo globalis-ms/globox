@@ -1,4 +1,4 @@
-# Globbox <small>1.0.0</small>
+# Globox <small>1.0.0</small>
 
 > Fast front-end starter.
 
@@ -6,5 +6,5 @@
 - Powerful flexbox grid system
 
 
-[GitHub](https://github.com/globalis-ms/globbox)
+[GitHub](https://github.com/globalis-ms/globox)
 [Get Started](#starter-kit)

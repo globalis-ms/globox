@@ -1,6 +1,6 @@
-[![MIT license](https://img.shields.io/badge/license-MIT-yellow.svg?style=flat-square)](https://github.com/globalis-ms/globbox/blob/master/LICENSE)
+[![MIT license](https://img.shields.io/badge/license-MIT-yellow.svg?style=flat-square)](https://github.com/globalis-ms/globox/blob/master/LICENSE)
 
-Globbox is meant as a **SCSS toolbox** instead of a standalone CSS framework.
+Globox is meant as a **SCSS toolbox** instead of a standalone CSS framework.
 It serves **modular** mixins and placeholder classes to extend your own components, preserving your namespace and your DOM.
 Note that it first has been made for internal purposes at [GLOBALIS media systems](https://www.globalis-ms.com/).
 
@@ -10,7 +10,7 @@ Thanks,
 
 # Starter kit
 
-Globbox comes as a front-end starter kit with a small footprint, with build tools and a folders structure.
+Globox comes as a front-end starter kit with a small footprint, with build tools and a folders structure.
 You will also find some [front-end guidelines](guidelines.md) to keep the project clean.
 
 ## Installation and build
@@ -20,7 +20,7 @@ Make sure [Node.js](https://nodejs.org/) is installed and that you are able to i
 Clone this repo, then run:
 
 ```shell
-git clone git@github.com:globalis-ms/globbox.git <project_name>
+git clone git@github.com:globalis-ms/globox.git <project_name>
 cd <project_name>
 
 # Installation
@@ -57,12 +57,12 @@ global | false | Skip local node modules installation
 
 ## Compilation
 
-Globbox comes with its starter architecture, compiling on Makefile.
-However the Globbox toolbox can be extracted and compiled separately, with your own method, following these instructions:
+Globox comes with its starter architecture, compiling on Makefile.
+However the Globox toolbox can be extracted and compiled separately, with your own method, following these instructions:
 
-- Import `globbox.scss` and its dependencies in your main SCSS file before compiling.
+- Import `globox.scss` and its dependencies in your main SCSS file before compiling.
 Comment/uncomment de modules you want.
-- Load or import the `_globbox.js` file anywhere.
+- Load or import the `_globox.js` file anywhere.
 It's best to concat your scripts in a single file.
 
 Assets come self documented, you'll find dependencies notes and comments on each file.

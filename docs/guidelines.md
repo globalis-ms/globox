@@ -1,6 +1,6 @@
 # Front-end guidelines
 
-While these are our internal guidelines, it gives the context in which Globbox has been created.
+While these are our internal guidelines, it gives the context in which Globox has been created.
 
 ## General notes
 
